@@ -1,11 +1,11 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-mongoose
-    .connect('mongodb://127.0.0.1:27017/cinema', { useNewUrlParser: true })
-    .catch(e => {
-        console.error('Connection error', e.message)
-    })
+const connectionString = 'mongodb://mongo:27017/new-cinema';
 
-const db = mongoose.connection
+mongoose.connect(connectionString, { useNewUrlParser: true }).catch((e) => {
+  console.error('Connection error', e.message);
+});
 
-module.exports = db
+const db = mongoose.connection;
+
+module.exports = db;
